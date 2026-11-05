@@ -30,11 +30,9 @@
                   ↓
 ┌──────────────────────────────────────────┐
 │ STEP 01. 블로그 본문 추출                │
-│ Requests + BeautifulSoup                 │
-│ 또는 ego lite(ego-browser)               │
+│ Requests + BeautifulSoup                 │               
 │                                          │
-│ - 블로그 URL 자동 접속                   │
-│ - 네이버 블로그 iframe 처리              │
+│ - 블로그 URL 자동 접속                   │         
 │ - 제목 및 본문 텍스트 추출               │
 │ - 불필요한 HTML 및 중복 텍스트 제거      │
 │ - 추출 결과를 후속 AI 분석 단계로 전달   │
@@ -113,7 +111,7 @@
 | **구분** | **기술** | **선정 이유** |
 | --- | --- | --- |
 | 메인 언어 | **Python** | AI API 호출, 콘텐츠 처리 및 파이프라인 자동화 |
-| 블로그 추출 | **Requests + BeautifulSoup / ego lite(ego-browser)** | HTML 분석 또는 실제 브라우저 기반 접근을 통해 블로그 본문 추출 |
+| 블로그 추출 | **Requests + BeautifulSoup** | HTML 분석 또는 실제 브라우저 기반 접근을 통해 블로그 본문 추출 |
 | 콘텐츠 분석 | **OpenAI API** | 원문 요약 및 핵심 메시지 추출 |
 | 대본·장면 생성 | **OpenAI API** | 숏폼 대본 및 장면별 구성 자동 생성 |
 | 이미지 생성 | **OpenAI Image API** | 화이트보드 스타일 일러스트 자동 생성 |
@@ -130,7 +128,7 @@
 
 두 방식 모두 블로그 URL을 입력받아 제목과 본문을 추출할 수 있지만, **웹페이지에 접근하고 콘텐츠를 처리하는 방식에서 차이가 있다.**
 
-| **비교 기준** | **Requests + BeautifulSoup** | **ego lite(ego-browser)** |
+| **비교 기준** | **Requests + BeautifulSoup** |
 | --- | --- | --- |
 | **처리 방식** | HTTP 요청으로 HTML을 가져와 분석 | 실제 브라우저를 실행해 페이지 탐색 |
 | **JavaScript 동적 콘텐츠** | 별도 처리 필요 | 브라우저에서 실행 가능 |
@@ -148,13 +146,6 @@
 - 실행 환경이 비교적 단순하고 가벼움
 - JavaScript로 생성되는 콘텐츠는 별도 대응 필요
 
-**ego lite(ego-browser)**
-
-- 실제 브라우저 환경에서 블로그 페이지에 접근
-- JavaScript 실행 및 스크롤을 통한 동적 콘텐츠 처리에 유리
-- iframe 및 지연 로딩 콘텐츠에 대응 가능
-- 별도의 브라우저 실행 환경과 프로세스 연동이 필요
-
 **기술 선정 방향**
 
 기업의 핵심 요구사항은 크롤링 기능 자체가 아니라 **블로그 콘텐츠를 정확하게 추출해 AI 영상 생성 파이프라인으로 전달하는 것**이다.
@@ -169,7 +160,7 @@
 
 | **기업 요구사항** | **구현 방안** | **기술** | **검증 상태** |
 | --- | --- | --- | --- |
-| **1. 콘텐츠 분석** | URL에서 본문 추출 및 AI 요약 | BeautifulSoup 또는 ego lite, OpenAI API | BeautifulSoup 기반 본문 추출 검증 / ego lite 비교 검토 |
+| **1. 콘텐츠 분석** | URL에서 본문 추출 및 AI 요약 | BeautifulSoup, OpenAI API | BeautifulSoup 기반 본문 추출 검증 |
 | **2. 대본 생성** | 30~60초 대본 및 장면 자동 분리 | OpenAI API, JSON | 자동화 예정 |
 | **3. 화이트보드 일러스트** | 장면별 흑백 라인아트 자동 생성 | OpenAI Image API | 수동 이미지 생성 검증 |
 | **4. 영상 구성** | 9:16 화면 및 순차 드로잉 | whiteboard-animator, Remotion | 2장면 영상 검증 |
