@@ -302,6 +302,10 @@ P1은 영상의 품질과 실무 활용 가능성을 높이는 작업이고, P2�
 
 **Python + OpenAI API + whiteboard-animator + FFmpeg + Remotion**
 
+whiteboard-animator github : https://github.com/masihsultani/whiteboard-animator  
+FFmpeg github : https://github.com/FFmpeg/FFmpeg  
+Remotion github : https://github.com/remotion-dev/remotion
+
 ### **입력**
 
 블로그 URL 또는 원문 텍스트
